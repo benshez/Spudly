@@ -5,8 +5,8 @@ import '/views/login_view.dart';
 import '/views/profile_view.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-class spudlyApp extends HookConsumerWidget {
-  const spudlyApp({super.key});
+class SpudlyApp extends HookConsumerWidget {
+  const SpudlyApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

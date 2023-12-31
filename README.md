@@ -3,7 +3,7 @@
 A Flutter app template containing only the minimum content for a new project using an 
 MVC architecture.
 
-![Flutter spudly template banner](https://drive.google.com/uc?export=view&id=1lZ4EVpIMEQpgWGw6LgYpBsX8bL5yJjLC)
+![Flutter Spudly template banner](https://drive.google.com/uc?export=view&id=1lZ4EVpIMEQpgWGw6LgYpBsX8bL5yJjLC)
 
 ## Getting Started
 

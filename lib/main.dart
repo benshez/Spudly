@@ -7,6 +7,6 @@ void main() async {
   await dotenv.load();
 
   runApp(const ProviderScope(
-    child: spudlyApp(),
+    child: SpudlyApp(),
   ));
 }
