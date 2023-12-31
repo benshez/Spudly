@@ -1,4 +1,4 @@
-# Flutter Spudly Template
+# Flutter Spudly App
 
 A Flutter app template containing only the minimum content for a new project using an 
 MVC architecture.
