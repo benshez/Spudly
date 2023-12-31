@@ -1,0 +1,44 @@
+name: spudly
+description: A minimal Flutter starter template.
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.5 <3.0.0"
+
+dependencies:
+  auth0_flutter: 1.5.0
+  flutter:
+    sdk: flutter
+  flutter_dotenv: ^5.0.2
+  google_fonts: ^6.1.0
+  riverpod: ^2.4.9
+  flutter_hooks: ^0.20.3
+  hooks_riverpod: ^2.4.9
+  http: ^1.1.2
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.3.0
+  flutter_secure_storage: ^9.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  freezed: ^2.4.6
+  flutter_lints: ^3.0.1
+  build_runner: ^2.4.7
+  json_serializable: ^6.7.1
+
+flutter:
+  uses-material-design: true
+  assets:
+  - ./.env
+  - assets/images/logo.png
+
+targets:
+  $default:
+    builders:
+      freezed:
+        options:
+          any_map: true
+          explicit_to_json: true  

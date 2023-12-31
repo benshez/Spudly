@@ -1,0 +1,50 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "spudly",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--web-hostname=127.0.0.1",
+                "--web-port=8080",
+            ],
+            "flutterMode":"debug",
+            "deviceId": "windows"
+        },
+        {
+            "name": "spudly (Chrome debug mode)",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--web-hostname=127.0.0.1",
+                "--web-port=5000",
+            ],
+            "flutterMode":"debug",
+            "deviceId": "chrome"
+        },
+        {
+            "name": "spudly (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "spudly (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "spudly (android debug mode)",
+            //"preLaunchTask": "run_android_emulator",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode":"debug",
+            "deviceId": "emulator-5554"
+        }
+    ]
+}

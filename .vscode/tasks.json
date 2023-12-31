@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "reveal": "silent",
+    "tasks": [{
+        "type": "shell",
+        "isBackground": false,
+        "command": "emulator",
+        "args": [
+            "-avd",
+            "Samsung_S21_5G",
+        ],
+        "presentation": {
+            "reveal": "always"
+        },
+        "label":"run_android_emulator"
+    }]
+}
