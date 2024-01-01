@@ -7,10 +7,18 @@ part 'app_config.embedded.dart';
 abstract class AppConfig {
   static const AppConfig instance = _$AppConfigEmbedded();
 
-  String get auth0Domain;
-  String get auth0ClientId;
-  String get auth0RedirectUri;
-  String get auth0RedirectUriAndroid;
+  String get applicationId;
+  AppAuthConfig get auth0;
 
   const AppConfig();
+}
+
+@EmbeddedConfig('app_config', path: ['auth0'])
+abstract class AppAuthConfig {
+  String get domain;
+  String get clientId;
+  String get redirectUri;
+  String get redirectUriAndroid;
+
+  const AppAuthConfig();
 }

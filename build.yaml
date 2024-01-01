@@ -7,4 +7,4 @@ targets:
           explicit_to_json: true  
       embedded_config:
         options:
-          app_config: 'lib/models/configuration/app_config.json'
+          app_config: 'lib/models/controllers/config/app_config.json'

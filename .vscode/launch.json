@@ -45,6 +45,13 @@
             "type": "dart",
             "flutterMode":"debug",
             "deviceId": "emulator-5554"
+        },
+        {
+            "name": "spudly (windows debug mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode":"debug",
+            "deviceId": "windows"
         }
     ]
 }

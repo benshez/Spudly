@@ -2,7 +2,8 @@ import 'package:auth0_flutter/auth0_flutter.dart';
 import 'package:auth0_flutter/auth0_flutter_web.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter/foundation.dart';
-import 'package:spudly/models/configuration/app_config.dart';
+import 'package:spudly/models/controllers/config/app_config.dart';
+import 'dart:io' show Platform;
 
 class Auth0Repository {
   Auth0? auth0;
@@ -10,7 +11,7 @@ class Auth0Repository {
   Credentials? fetchedCredentials;
 
   Future<Credentials> initAction() async {
-    if (kIsWeb) {
+    if (kIsWeb || Platform.isWindows) {
       await doWebInit();
     } else {
       await doAppInit();
@@ -20,7 +21,7 @@ class Auth0Repository {
   }
 
   Future<Credentials> login() async {
-    if (kIsWeb) {
+    if (kIsWeb || Platform.isWindows) {
       await doWebInit();
       await loginWeb();
     } else {
@@ -31,18 +32,25 @@ class Auth0Repository {
   }
 
   Future<void> doAppInit() async {
-    auth0 =
-        Auth0(AppConfig.instance.auth0Domain, AppConfig.instance.auth0ClientId);
+    auth0 = Auth0(
+        AppConfig.instance.auth0.domain, AppConfig.instance.auth0.clientId);
+
+    var redirectUri = '';
+    //if (Platform.isAndroid) {
+    redirectUri = AppConfig.instance.auth0.redirectUriAndroid;
+    //}
     var credentials = await auth0!
-        .webAuthentication(scheme: 'com.example.spudly')
-        .login(redirectUrl: AppConfig.instance.auth0RedirectUriAndroid);
+        .webAuthentication(scheme: AppConfig.instance.applicationId)
+        .login(redirectUrl: redirectUri);
+
     await setRefreshToken(credentials);
+
     fetchedCredentials = credentials;
   }
 
   Future<void> doWebInit() async {
     auth0Web = Auth0Web(
-        AppConfig.instance.auth0Domain, AppConfig.instance.auth0ClientId);
+        AppConfig.instance.auth0.domain, AppConfig.instance.auth0.clientId);
 
     await auth0Web!.onLoad().then((final credentials) async {
       if (credentials != null) {
@@ -58,7 +66,7 @@ class Auth0Repository {
 
   Future<Credentials> loginWeb() async {
     auth0Web = Auth0Web(
-        AppConfig.instance.auth0Domain, AppConfig.instance.auth0ClientId);
+        AppConfig.instance.auth0.domain, AppConfig.instance.auth0.clientId);
 
     await auth0Web!.loginWithPopup();
     // await auth0Web!
