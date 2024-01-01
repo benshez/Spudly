@@ -185,6 +185,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.4"
+  embedded_config:
+    dependency: "direct dev"
+    description:
+      name: embedded_config
+      sha256: d1ef33f16909ce2524f3b1f26589158312cdf4bcd172aa34523e857a4524a758
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.0"
+  embedded_config_annotations:
+    dependency: "direct main"
+    description:
+      name: embedded_config_annotations
+      sha256: "1d474154a0448639309176a1d047f1472c776e8e9fbe2f0049429d273599fd13"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.0+1"
   fake_async:
     dependency: transitive
     description:
@@ -222,14 +238,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_dotenv:
-    dependency: "direct main"
-    description:
-      name: flutter_dotenv
-      sha256: "9357883bdd153ab78cbf9ffa07656e336b8bbb2b5a3ca596b0b27e119f7c7d77"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.1.0"
   flutter_hooks:
     dependency: "direct main"
     description:
@@ -258,10 +266,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_secure_storage
-      sha256: ffdbb60130e4665d2af814a0267c481bcf522c41ae2e43caf69fa0146876d685
+      sha256: "22dbf16f23a4bcf9d35e51be1c84ad5bb6f627750565edd70dab70f3ff5fff8f"
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.0"
+    version: "8.1.0"
   flutter_secure_storage_linux:
     dependency: transitive
     description:
@@ -298,10 +306,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_secure_storage_windows
-      sha256: "5809c66f9dd3b4b93b0a6e2e8561539405322ee767ac2f64d084e2ab5429d108"
+      sha256: "38f9501c7cb6f38961ef0e1eacacee2b2d4715c63cc83fe56449c4d3d0b47255"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0"
+    version: "2.1.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter

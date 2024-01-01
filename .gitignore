@@ -50,3 +50,5 @@ app.*.map.json
 # Config
 *.env
 *.properties
+/lib/models/configuration/app_config.json
+/lib/models/configuration/app_config.embedded.dart
