@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '/models/controllers/auth0/auth0_controller.dart';
+import 'package:spudly/controllers/auth0/auth0_controller.dart';
 
 class ProfileView extends HookConsumerWidget {
   const ProfileView({super.key});
@@ -26,6 +26,8 @@ class ProfileView extends HookConsumerWidget {
         ),
         const SizedBox(height: 24),
         Text('Name:  ${auth0State.data!.user.name}'),
+        const SizedBox(height: 24),
+        Text('Token:  ${auth0State.data!.accessToken}'),
         const SizedBox(height: 48),
         ElevatedButton(
           onPressed: () async {

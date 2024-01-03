@@ -3,8 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter/foundation.dart';
-import '/models/controllers/auth0/auth0_state.dart';
-import '/models/repositories/auth0/auth0_repository.dart';
+import 'package:spudly/controllers/auth0/auth0_state.dart';
+import 'package:spudly/services/auth0/auth0_authentication_service.dart';
 
 final auth0NotifierProvider =
     StateNotifierProvider<Auth0Controller, Auth0State>(
@@ -14,23 +14,23 @@ final auth0NotifierProvider =
 class Auth0Controller extends StateNotifier<Auth0State> {
   Auth0Controller() : super(const Auth0State());
 
-  final repository = Auth0Repository();
+  final authenticationService = Auth0AthenticationService();
 
   Future<void> initAction() async {
     state = state.copyWith(isBusy: true);
     try {
       final storedRefreshToken =
-          await repository.getRefreshToken('refresh_token');
+          await authenticationService.getRefreshToken('refresh_token');
 
       //Check stored refresh token
       if (storedRefreshToken == '') {
         state = state.copyWith(isBusy: false);
-        await repository.doAppInit();
+        await authenticationService.doAppInit();
         if (storedRefreshToken == '') return;
       }
 
-      // Call init action repository
-      final data = await repository.initAction();
+      // Call init action service
+      final data = await authenticationService.initAction();
       state = state.copyWith(isBusy: false, isLoggedIn: true, data: data);
     } on Exception catch (e, s) {
       debugPrint('login error: $e - stack: $s');
@@ -41,7 +41,7 @@ class Auth0Controller extends StateNotifier<Auth0State> {
   Future<void> login() async {
     state = state.copyWith(isBusy: true);
     try {
-      final data = await repository.login();
+      final data = await authenticationService.login();
       state = state.copyWith(isBusy: false, isLoggedIn: true, data: data);
     } on Exception catch (e, s) {
       debugPrint('login error: $e - stack: $s');

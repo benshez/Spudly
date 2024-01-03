@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '/models/controllers/auth0/auth0_controller.dart';
-import '/views/login_view.dart';
-import '/views/profile_view.dart';
+import 'package:spudly/controllers/auth0/auth0_controller.dart';
+import 'package:spudly/views/login_view.dart';
+import 'package:spudly/views/profile_view.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class SpudlyApp extends HookConsumerWidget {

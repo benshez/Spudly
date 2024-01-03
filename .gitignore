@@ -50,5 +50,6 @@ app.*.map.json
 # Config
 *.env
 *.properties
-/lib/models/controllers/config/app_config.json
-/lib/models/controllers/config/app_config.embedded.dart
+/lib/models/config/app_config.json
+/lib/models/config/app_config.embedded.dart
+/lib/models/config/spudly_configuration.embedded.dart

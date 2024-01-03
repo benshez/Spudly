@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '/models/controllers/auth0/auth0_controller.dart';
+import 'package:spudly/controllers/auth0/auth0_controller.dart';
 
 class LoginView extends HookConsumerWidget {
   const LoginView({super.key});

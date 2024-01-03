@@ -2,13 +2,14 @@ import 'package:auth0_flutter/auth0_flutter.dart';
 import 'package:auth0_flutter/auth0_flutter_web.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter/foundation.dart';
-import 'package:spudly/models/controllers/config/app_config.dart';
+import 'package:spudly/models/config/app_config.dart';
 import 'dart:io' show Platform;
 
-class Auth0Repository {
+class Auth0AthenticationService {
   Auth0? auth0;
   Auth0Web? auth0Web;
   Credentials? fetchedCredentials;
+  late AppConfig? config = AppConfig.instance;
 
   Future<Credentials> initAction() async {
     if (kIsWeb || Platform.isWindows) {
@@ -32,15 +33,16 @@ class Auth0Repository {
   }
 
   Future<void> doAppInit() async {
-    auth0 = Auth0(
-        AppConfig.instance.auth0.domain, AppConfig.instance.auth0.clientId);
+    auth0 = Auth0(config!.spudlyConfig().authentication.application.domain,
+        config!.spudlyConfig().authentication.application.clientId);
 
     var redirectUri = '';
     //if (Platform.isAndroid) {
-    redirectUri = AppConfig.instance.auth0.redirectUriAndroid;
+    redirectUri =
+        config!.spudlyConfig().authentication.application.redirectUriAndroid;
     //}
     var credentials = await auth0!
-        .webAuthentication(scheme: AppConfig.instance.applicationId)
+        .webAuthentication(scheme: config!.spudlyConfig().applicationId)
         .login(redirectUrl: redirectUri);
 
     await setRefreshToken(credentials);
@@ -50,7 +52,8 @@ class Auth0Repository {
 
   Future<void> doWebInit() async {
     auth0Web = Auth0Web(
-        AppConfig.instance.auth0.domain, AppConfig.instance.auth0.clientId);
+        config!.spudlyConfig().authentication.application.domain,
+        config!.spudlyConfig().authentication.application.clientId);
 
     await auth0Web!.onLoad().then((final credentials) async {
       if (credentials != null) {
@@ -66,11 +69,12 @@ class Auth0Repository {
 
   Future<Credentials> loginWeb() async {
     auth0Web = Auth0Web(
-        AppConfig.instance.auth0.domain, AppConfig.instance.auth0.clientId);
+        config!.spudlyConfig().authentication.application.domain,
+        config!.spudlyConfig().authentication.application.clientId);
 
     await auth0Web!.loginWithPopup();
     // await auth0Web!
-    //     .loginWithRedirect(redirectUrl: AppConfig.instance.auth0RedirectUri);
+    //     .loginWithRedirect(redirectUrl: config.auth0RedirectUri);
 
     fetchedCredentials = await auth0Web!.credentials();
     return fetchedCredentials as Credentials;
