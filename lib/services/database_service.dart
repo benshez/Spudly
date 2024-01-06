@@ -5,14 +5,7 @@ import 'package:spudly/models/models.dart';
 
 class DatabaseService {
   static Future<void> init() async {
-    var firebaseConfig = FirebaseOptions(
-        apiKey: "AIzaSyD_qohkbjnznHZQI2pduNASP6mZ2ujwyK8",
-        appId: "1:372332871040:web:258f4a31e6e6351981d565",
-        authDomain: "spudly-f1a05.firebaseapp.com",
-        projectId: "spudly-f1a05",
-        storageBucket: "spudly-f1a05.appspot.com",
-        messagingSenderId: "372332871040",
-        measurementId: "G-VHEWP9BL66");
+    var firebaseConfig = FirebaseOptions();
 
     await Firebase.initializeApp(options: firebaseConfig);
   }
