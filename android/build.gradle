@@ -13,7 +13,6 @@ buildscript {
 ext {
     defaultVersionName = '1.0.0'
     defaultMinSdkVersion = 21
-    defaultMinSdkVersion1 = defaultMinSdkVersion
 }
 
 allprojects {

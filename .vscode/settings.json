@@ -1,25 +1,3 @@
 {
-    "java.compile.nullAnalysis.mode": "automatic",
-    "[rocket-mvbasic]": {
-        "editor.codeLens": false
-    },
-    "files.associations": {
-        "**/BP.*/*": "rocket-mvbasic",
-        "**/BP/*": "rocket-mvbasic",
-        "*.bp": "rocket-mvbasic",
-        "*.pdp": "rocket-mvbasic",
-        "**/YouiLIB/*": "rocket-mvbasic",
-        "*.func": "rocket-mvbasic",
-        "**/.rmv/config/*.json": "jsonc"
-    },
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/Thumbs.db": true,
-        "**/.rmv/catalog/**": true,
-        "*/_*": false
-    }
+    "cmake.sourceDirectory": "C:/Users/benvh01/Projects/flutter/spudly/build/windows/x64/extracted/firebase_cpp_sdk_windows"
 }

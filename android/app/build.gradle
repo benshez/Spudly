@@ -48,10 +48,8 @@ android {
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
-        versionName defaultVersionName
-        manifestPlaceholders += [
-            auth0Domain: "dev-ne-r1w-2.au.auth0.com", auth0Scheme: "com.example.spudly"
-        ]
+        versionName flutterVersionName
+        manifestPlaceholders += []
     }
 
     buildTypes {
@@ -67,6 +65,4 @@ flutter {
     source '../..'
 }
 
-dependencies {
-    implementation 'com.google.errorprone:error_prone_annotations:2.23.0'
-}
+dependencies {}
